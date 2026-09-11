@@ -1,0 +1,22 @@
+PROBLEMA 2 - Simulación continua (clúster de servidores)
+Generado: 2026-09-11 19:40:16
+
+--- Métricas ---
+Horas simuladas: 24 (paso 1 min, semilla 42)
+Datos entrantes / procesados: 33.224 TB / 26.821 TB
+Eficiencia global de la red: 80.73% (nominal 90%)
+Tráfico promedio: 3.076 Gbps
+Temperatura promedio: 71.21 °C (mín 56.42, máx 83.42, desv. 4.6)
+Tiempo en throttling (>70 °C): 62.0% en 37 episodios
+Tiempo en zona crítica (>=90 °C): 0.0%
+Veredicto: VIABLE CON RIESGO: throttling frecuente, la refrigeración va justa
+
+--- Análisis ---
+El clúster procesó 26.821 TB de 33.224 TB entrantes; frente al 90% nominal se perdieron 3.081 TB por estrangulamiento térmico.
+La temperatura osciló entre 56.42 y 83.42 °C (desviación 4.6 °C): cada cambio de tráfico desplaza el punto de equilibrio (40 °C con 1 Gbps, 100 °C con 5 Gbps) y la inercia térmica no alcanza a compensarlo.
+Al estar el punto de diseño (70 °C) justo en el tráfico medio, cualquier demanda superior a 3 Gbps activa el throttling (62.0% del tiempo).
+
+--- Conclusión y recomendación (fuente: Gemini (gemini-flash-latest)) ---
+Conclusión: El clúster presenta un rendimiento degradado debido a que operó el 62.0 % del tiempo bajo throttling a lo largo de 37 episodios, con una temperatura media de 71.21 °C y un pico de 83.42 °C. Esta limitación térmica redujo la eficiencia global al 80.73 % (por debajo del 90 % nominal), procesando únicamente 26.82 TB de los 33.22 TB entrantes.
+
+Recomendación: Se debe incrementar la capacidad del sistema de disipación y refrigeración para soportar el tráfico promedio de 3.08 Gbps por debajo del umbral de diseño de 70 °C, evitando la activación recurrente del throttling y restableciendo la tasa óptima de procesamiento.

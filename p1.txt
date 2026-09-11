@@ -1,0 +1,23 @@
+PROBLEMA 1 - Simulación de eventos discretos (fábrica de laptops)
+Generado: 2026-09-11 19:40:03
+
+--- Métricas ---
+Horas simuladas: 8 (semilla 42)
+Órdenes llegadas / completadas: 82 / 74
+Espera promedio en cola: 12.49 min (máxima 44.42 min)
+Tiempo promedio en el sistema: 17.19 min
+Tiempo para despachar un lote de 50 laptops: 313.39 min
+Paradas de línea por falta de stock: 0 (0.0 min detenida)
+Órdenes retrasadas por inventario: 0
+Reabastecimientos: 1 (eficiencia 100.0%)
+Utilización de la estación: 77.0% | Cola máxima: 8
+
+--- Análisis ---
+La estación trabajó al 77.0% del tiempo; la carga teórica es 83% (10 órdenes/h x 5 min), por lo que el sistema opera cerca de su límite y las colas son sensibles a picos de llegadas.
+La espera promedio fue 12.49 min con cola máxima de 8 órdenes; la espera se debe principalmente a la capacidad de la única estación.
+La política de inventario (umbral 10, lote 50, entrega 15 min) evitó todas las paradas: el umbral cubre la demanda esperada durante la entrega (~2.5 órdenes en 15 min).
+
+--- Conclusión y recomendación (fuente: Gemini (gemini-flash-latest)) ---
+Conclusión: El sistema operó de forma estable con un 77.0% de utilización y cero paradas de línea por inventario (100% de eficiencia en reabastecimiento), completando 74 de 82 órdenes. No obstante, la variabilidad generó picos de congestión con una cola máxima de 8 unidades y tiempos de espera que alcanzaron hasta 44.42 min (promedio de 12.49 min), además de un tiempo de despacho de lote prolongado de 313.39 min.
+
+Recomendación: Implementar apoyo operativo flexible cuando la cola supere 4 unidades o estandarizar el proceso para reducir el tiempo de servicio por debajo de los 5 min, mitigando los retrasos extremos. Asimismo, evaluar una reducción en el tamaño de lote de producción para recortar sustancialmente el tiempo de entrega final.
